@@ -18,4 +18,4 @@ Aplikacja ma na podstawie bazy danych obliczać opłacalność ruchów na rynku 
 
 ### UML projektu
 
-![Alt text](img\UML_schema.png)
+![Alt text](../img/UML_schema.png)
