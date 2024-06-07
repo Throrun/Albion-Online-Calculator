@@ -24,4 +24,8 @@ public:
 	void setPriceForCity(City city, int price) {
 		priceMap[city] = price;
 	}
+
+	const map<City, int>& getPriceMap() const {
+		return priceMap;
+	}
 };
