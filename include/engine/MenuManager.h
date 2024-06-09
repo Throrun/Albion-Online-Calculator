@@ -1,10 +1,14 @@
 #pragma once
 
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
 class MenuManager {
+private:
+	bool isWorking = true;
+	void waitForEnter();
 public:
 	MenuManager() {
 		menuNavigator();
