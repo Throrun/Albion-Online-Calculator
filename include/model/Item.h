@@ -28,4 +28,6 @@ public:
 	const map<City, int>& getPriceMap() const {
 		return priceMap;
 	}
+
+	friend class Calculator;
 };
