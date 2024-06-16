@@ -1,32 +1,30 @@
-#pragma once
+#include "../../include/service/CalculatorService.h"
 
-#include <iostream>
-#include <string>
-#include <map>
-#include <algorithm>
-#include "model/Item.h"
 
-using namespace std;
+Calculator::Calculator(const Item& item, const City& startCity) : item(item), startCity(startCity) {}
 
-class CalculatorService {
-public:
-    pair<City, double> calculateHighestProfit(const Item& item, const map<City, int>& basePrices) {
-        double maxProfit = -1.0;
-        City bestCity = City::BRIDGEWATCH;
+profit Calculator::calculateProfit(const Item& item, const City& startCity) {
+	profit prof;
+	int a = 5;
+	map<City, int> prices = item.getPriceMap();
+	map<City, int>::iterator it = prices.begin();
 
-        for (const auto& [city, price] : item.getPriceMap()) {
-            if (basePrices.find(city) != basePrices.end()) {
-                int basePrice = basePrices.at(city);
-                if (basePrice > 0) {
-                    double profit = (static_cast<double>(price) - basePrice) / basePrice * 100.0;
-                    if (profit > maxProfit) {
-                        maxProfit = profit;
-                        bestCity = city;
-                    }
-                }
-            }
-        }
+	prof.profit = 0;
+	prof.city = startCity;
 
-        return { bestCity, maxProfit };
-    }
-};
+	while (it != prices.end()) {
+		double price = static_cast<double>(it->second);
+		double startPrice = static_cast<double>(prices.at(startCity));
+		if (price > startPrice) {
+			if (((price - startPrice) / startPrice) * 100.0 > prof.profit) {
+				prof.profit = ((price - startPrice) / startPrice) * 100.0;
+				prof.city = it->first;
+			}
+
+		}
+		it++;
+	}
+	cout << prof.city << " " << prof.profit;
+	std::this_thread::sleep_for(std::chrono::seconds(10));
+	return prof;
+}

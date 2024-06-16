@@ -1,4 +1,5 @@
-#include "MenuManager.h"
+#include "../../include/engine/MenuManager.h"
+#include "../../include/service/CalculatorService.h"
 
 inline void clearScreen() {
 #ifdef _WIN32
