@@ -17,6 +17,6 @@ private:
 	Item item;
 	City startCity;
 public:
-	Calculator(const Item&, const City&);
+	Calculator();
 	profit calculateProfit(const Item&, const City&);
 };

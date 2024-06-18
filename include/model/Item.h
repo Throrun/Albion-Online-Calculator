@@ -28,4 +28,12 @@ public:
 	const map<City, int>& getPriceMap() const {
 		return priceMap;
 	}
+
+	const string getName() const {
+		return name;
+	}
+
+	const Tier getTier() const {
+		return tier;
+	}
 };

@@ -2,6 +2,11 @@
 
 #include <iostream>
 #include <cstdlib>
+#include "../engine/SqliteDatabase.h"
+#include "../../include/service/CalculatorService.h"
+#include <iomanip>
+#include <string>
+#include <../model/Tier.h>
 
 using namespace std;
 
@@ -9,6 +14,7 @@ class MenuManager {
 private:
 	bool isWorking = true;
 	void waitForEnter();
+	SqliteDatabase db;
 public:
 	MenuManager() {
 		menuNavigator();

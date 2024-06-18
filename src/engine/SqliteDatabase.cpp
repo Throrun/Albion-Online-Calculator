@@ -14,12 +14,12 @@ void SqliteDatabase::runDatabase() {
 	{}
 }
 
-void SqliteDatabase::saveItem(City city, Item item) {
+bool SqliteDatabase::saveItem(Item item) {
 
 }
 
 void SqliteDatabase::initDatabaseTables() {
-	const char* sql = "CREATE TABLE Items (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, tier TEXT, martlock INT, thetfort INT,fort_sterling INT, lymhurst INT, bridgewatch INT, caerleon INT, black_market INT, brecilien INT )";
+	const char* sql = "CREATE TABLE IF NOT EXISTS Items (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, tier TEXT, martlock INT, thetfort INT,fort_sterling INT, lymhurst INT, bridgewatch INT, caerleon INT, black_market INT, brecilien INT )";
 	SqliteDatabase::executeSQL(sql);
 }
 

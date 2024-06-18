@@ -30,7 +30,7 @@ public:
 	// Method used for run connection to database
 	void runDatabase();
 	// Method used for saving Items in database
-	void saveItem(City city, Item item);
+	bool saveItem(Item item);
 	// Method used for creation database based on csv file
 	void initDatabaseTables();
 	// Method used for set all items in db
