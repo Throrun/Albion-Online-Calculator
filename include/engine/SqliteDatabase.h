@@ -14,13 +14,13 @@ private:
 		{
 			int result = sqlite3_exec(db, sql, nullptr, nullptr, &errorMessage);
 			if (result != SQLITE_OK) {
-				throw("SQL ERROR: " + *errorMessage);
+				throw std::exception("SQL ERROR: " + *errorMessage);
 			}
-			std::cout << "dodano: " << sql <<  std::endl;
+			std::cout << "wykonano: " << sql <<  std::endl;
 		}
-		catch (const std::exception&)
+		catch (const std::exception& e)
 		{
-
+			std::cerr << "Blad: w skladni sql " << e.what() << std::endl;
 		}
 		
 	}
