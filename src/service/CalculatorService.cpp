@@ -1,7 +1,7 @@
 #include "../../include/service/CalculatorService.h"
 
 
-Calculator::Calculator(const Item& item, const City& startCity) : item(item), startCity(startCity) {}
+Calculator::Calculator() : item(item), startCity(startCity) {}
 
 profit Calculator::calculateProfit(const Item& item, const City& startCity) {
 	profit prof;
@@ -24,7 +24,5 @@ profit Calculator::calculateProfit(const Item& item, const City& startCity) {
 		}
 		it++;
 	}
-	cout << prof.city << " " << prof.profit;
-	std::this_thread::sleep_for(std::chrono::seconds(10));
 	return prof;
 }

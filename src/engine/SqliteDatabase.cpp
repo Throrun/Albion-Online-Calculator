@@ -16,12 +16,21 @@ void SqliteDatabase::runDatabase() {
 	}
 }
 
+<<<<<<< HEAD
 void SqliteDatabase::saveItem(City city, Item item) {
 	
 }
 
 void SqliteDatabase::initDatabaseTables() {
 	const char* sql = "CREATE TABL IF NOT EXISTS Items (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, tier TEXT, martlock INT, thetfort INT,fort_sterling INT, lymhurst INT, bridgewatch INT, caerleon INT, black_market INT, brecilien INT )";
+=======
+bool SqliteDatabase::saveItem(Item item) {
+
+}
+
+void SqliteDatabase::initDatabaseTables() {
+	const char* sql = "CREATE TABLE IF NOT EXISTS Items (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, tier TEXT, martlock INT, thetfort INT,fort_sterling INT, lymhurst INT, bridgewatch INT, caerleon INT, black_market INT, brecilien INT )";
+>>>>>>> af8d92cd81b1476c6a1f119c55d2492f826d3668
 	SqliteDatabase::executeSQL(sql);
 }
 

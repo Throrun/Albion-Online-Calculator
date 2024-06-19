@@ -5,4 +5,3 @@ int main() {
     SqliteDatabase db;
     db.runDatabase();
     db.getAllItems();
-}
