@@ -18,4 +18,4 @@ Aplikacja ma na podstawie bazy danych obliczać opłacalność ruchów na rynku 
 
 ### UML projektu
 
-![UML_projekt](https://github.com/Throrun/Albion-Online-Calculator/assets/47336168/c73c7abf-7cc4-414e-8062-93e92e67c549)
+![UML_projekt]([https://github.com/Throrun/Albion-Online-Calculator/assets/47336168/c73c7abf-7cc4-414e-8062-93e92e67c549](https://github.com/Throrun/Albion-Online-Calculator/blob/ebd70bf9ae9d0bc2901976be8c714ea5d1893f11/documentation/uml/UML_projekt.drawio))
