@@ -17,9 +17,6 @@ void SqliteDatabase::runDatabase() {
 }
 
 bool SqliteDatabase::saveItem(Item item) {
-<<<<<<< HEAD
-	return true;
-=======
 	try{
 		std::string name = item.getName();
 		std::string tier = toString(item.getTier());
@@ -47,7 +44,6 @@ bool SqliteDatabase::saveItem(Item item) {
 		std::cerr << "blad przy dodawaniu uzytkownika : " << e.what() << std::endl;
 		return false;
 	}
->>>>>>> 89aca6507c00a98355e4150aeabca193e961a6e2
 }
 
 void SqliteDatabase::initDatabaseTables() {
