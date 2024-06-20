@@ -18,5 +18,5 @@ private:
 	City startCity;
 public:
 	Calculator();
-	profit calculateProfit(const Item&, const City&);
+	profit calculateProfit(const Item&, const City&); //returns struct of the biggest profit and the city in which we sell for this profit
 };

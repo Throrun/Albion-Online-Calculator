@@ -20,7 +20,7 @@ void MenuManager::menuNavigator() {
 	while (isWorking) {
 		clearScreen();
 		cout << "1. Wyswietl liste przedmiotow\n"
-			<< "2. Dodaj cene przedmiotu\n"
+			<< "2. Dodaj/Edytuj wlasny przedmiot\n"
 			<< "3. Pobierz ceny z Internetu\n"
 			<< "4. Kalkulator\n"
 			<< "5. Wyjscie z aplikacji\n";
@@ -35,7 +35,7 @@ void MenuManager::menuNavigator() {
 			showListOfItems();
 			break;
 		case 2:
-			addPriceToTheItem();
+			AddItem();
 			break;
 		case 3:
 			loadPricesFromInternet();
@@ -55,9 +55,10 @@ void MenuManager::menuNavigator() {
 
 void MenuManager::showListOfItems() {
 	clearScreen();
-	cout << "---Lista przedmiotow---\n";
+	cout << "[1] Lista przedmiotow\n";
 	vector<Item> items = db.getAllItems();
 	int l = 0;
+	int cheapestPrice = 999999999;
 	for (const auto& item : items) {
 		map<City, int> prices = item.getPriceMap();
 		map<City, int>::iterator it = prices.begin();
@@ -71,36 +72,44 @@ void MenuManager::showListOfItems() {
 			cout << endl;
 		}
 		it = prices.begin();
-		cout << setw(20) << item.getName() << setw(20) << item.getTier();
-		do{
-			cout << setw(20) << it->second;
-			it++;
-		} while (it != prices.end());
-		cout << endl;
+		cheapestPrice = 999999999;
+		for (const auto& price : prices) {
+			if (price.second < cheapestPrice && price.second > 0) {
+				cheapestPrice = price.second;
+			}
+		}
+		if (cheapestPrice != 999999999) {
+			cout << setw(20) << item.getName() << setw(20) << item.getTier();
+			do {
+				cout << setw(20) << it->second;
+				it++;
+			} while (it != prices.end());
+			cout << endl;
+		}
 		l++;
 	}
 	waitForEnter();
 }
 
-void MenuManager::addPriceToTheItem() {
+void MenuManager::AddItem() {
 	clearScreen();
 	int l = 0;
 	string name;
 	string str_tier;
 	Tier tier = Tier::UNKNOWN;
-	cout << "---Dodawanie ceny do przedmiotu---\n";
+	cout << "[2] Dodawanie wlasnego przedmiotu\n";
 
 	cout << "Podaj nazwe przedmiotu, ktory chcesz stworzyc: ";
-	cin >> name;
+	cin.ignore();
+	getline(cin, name);
 
 	while (tier == Tier::UNKNOWN) {
 		if (l > 0) {
 			clearScreen();
-			cout << "---Dodawanie ceny do przedmiotu---\n\n";
-			cout << "Blednie wprowadzony tier! ";
+			cout << "[2] Dodawanie wlasnego przedmiotu\n\n";
 		}
 		cout << "Podaj tier przedmiotu, ktory chcesz stworzyc: ";
-		cin >> str_tier;
+		getline(cin, str_tier);
 		tier = fromString(str_tier);
 		l++;
 	}
@@ -114,7 +123,7 @@ void MenuManager::addPriceToTheItem() {
 
 	while (isAdding == 't') {
 		clearScreen();
-		cout << "---Dodawanie ceny do przedmiotu---\n\n";
+		cout << "[2] Dodawanie wlasnego przedmiotu\n\n";
 		for (int i = 0; i <= static_cast<int>(City::BRECILIEN); ++i) {
 			City city = static_cast<City>(i);
 			cout << i + 1 << ". " << city << endl;
@@ -157,7 +166,7 @@ void MenuManager::addPriceToTheItem() {
 		}
 		while (true) {
 			clearScreen();
-			cout << "---Dodawanie ceny do przedmiotu---\n\n";
+			cout << "[2] Dodawanie wlasnego przedmiotu\n\n";
 			cout << "Podaj cene dla " << chosen_city << ": ";
 
 			if (cin >> price) {
@@ -175,7 +184,7 @@ void MenuManager::addPriceToTheItem() {
 		while (isAdding != 't' && isAdding != 'n') {
 			clearScreen();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			cout << "---Dodawanie ceny do przedmiotu---\n\n";
+			cout << "[2] Dodawanie wlasnego przedmiotu\n\n";
 			cout << "Niepoprawny wybor!\n\n";
 			cout << "Czy chcesz dodac cene " << item.getName() << " w miescie ? [t / n]\n";
 			cin >> isAdding;
@@ -191,14 +200,14 @@ void MenuManager::addPriceToTheItem() {
 
 void MenuManager::loadPricesFromInternet() {
 	clearScreen();
-	cout << "---Ladowanie cen z internetu---\n";
+	cout << "[3] Ladowanie cen z internetu\n";
 	waitForEnter();
 	//od api bool, który decyduje czy sie powiodlo
 }
 
 void MenuManager::useCalculator() {
 	clearScreen();
-	cout << "---Kalkulator---\n";
+	cout << "[4] Kalkulator \n";
 	vector<Item> items = db.getAllItems();
 	Calculator calc;
 	cout << setw(20) << "Item" << setw(20) << "Tier" << setw(20) << "Buy city" << setw(20) << "Sell City" << setw(20) << "Income"<<endl;
@@ -223,6 +232,6 @@ void MenuManager::useCalculator() {
 
 void MenuManager::exitApp() {
 	clearScreen();
-	cout << "---Opuszczanie aplikacji---\n";
+	cout << "[5] Opuszczanie aplikacji\n";
 	isWorking = false;
 }

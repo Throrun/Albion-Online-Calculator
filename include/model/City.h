@@ -27,7 +27,7 @@ inline std::ostream& operator<<(std::ostream& os, City city) {
     default: os << "UNKNOWN"; break;
     }
     return os;
-}
+}//allows to output enum value tier as string
 
 inline std::string toString(City city) {
     switch (city) {
@@ -41,4 +41,4 @@ inline std::string toString(City city) {
     case City::BRECILIEN: return "BRECILIEN"; break;
     default: return "UNKNOWN";
     }
-}
+}//converts string to tier enum value

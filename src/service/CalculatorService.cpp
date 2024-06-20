@@ -11,7 +11,7 @@ profit Calculator::calculateProfit(const Item& item, const City& startCity) {
 
 	prof.profit = 0;
 	prof.city = startCity;
-
+	
 	while (it != prices.end()) {
 		double price = static_cast<double>(it->second);
 		double startPrice = static_cast<double>(prices.at(startCity));

@@ -20,19 +20,19 @@ public:
 		this->name = name;
 		this->tier = tier;
 	}
-
+	//allows to set price for an city
 	void setPriceForCity(City city, int price) {
 		priceMap[city] = price;
 	}
-
+	//returns list of prices asigned to cities
 	const map<City, int>& getPriceMap() const {
 		return priceMap;
 	}
-
+	//returns name of an item
 	const string getName() const {
 		return name;
 	}
-
+	//returns tier of an item
 	const Tier getTier() const {
 		return tier;
 	}
