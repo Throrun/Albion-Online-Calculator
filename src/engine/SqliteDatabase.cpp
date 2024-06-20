@@ -73,7 +73,7 @@ void SqliteDatabase::setDatabaseItems() {
 vector<Item> SqliteDatabase::getAllItems()
 {
 	vector<Item> itemList;
-	const char* selectDataSQL = "SELECT * FROM Items;";
+	const char* selectDataSQL = "SELECT * FROM Items WHERE martlock !=0 OR thetfort !=0 OR fort_sterling !=0 OR lymhurst !=0 OR bridgewatch !=0 OR caerleon !=0 OR black_market !=0 OR brecilien;";
 	sqlite3_stmt* stmt;
 	
 	
