@@ -17,5 +17,4 @@ Aplikacja ma na podstawie bazy danych obliczać opłacalność ruchów na rynku 
 - obliczanie możliwych ruchów na rynku (np. jaki będzie profit)
 
 ### UML projektu
-
-![UML_projekt]([https://github.com/Throrun/Albion-Online-Calculator/assets/47336168/c73c7abf-7cc4-414e-8062-93e92e67c549](https://github.com/Throrun/Albion-Online-Calculator/blob/ebd70bf9ae9d0bc2901976be8c714ea5d1893f11/documentation/uml/UML_projekt.drawio))
+![UML_pro](https://github.com/Throrun/Albion-Online-Calculator/assets/98560554/eba2e383-848a-4047-9024-6a542eb52a8b)
