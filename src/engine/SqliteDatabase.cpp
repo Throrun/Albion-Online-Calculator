@@ -15,7 +15,7 @@ void SqliteDatabase::runDatabase() {
 }
 
 bool SqliteDatabase::saveItem(Item item) {
-
+	return true;
 }
 
 void SqliteDatabase::initDatabaseTables() {
