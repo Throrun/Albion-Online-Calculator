@@ -203,7 +203,7 @@ void MenuManager::useCalculator() {
 	Calculator calc;
 	cout << setw(20) << "Item" << setw(20) << "Tier" << setw(20) << "Buy city" << setw(20) << "Sell City" << setw(20) << "Income"<<endl;
 	for (const auto& item : items) {
-		int cheapestPrice=99999999999999;
+		int cheapestPrice= 276447231;
 		City cheapestCity = City::BRIDGEWATCH;
 		map<City, int> prices = item.getPriceMap();
 		for (const auto& price : prices) {
@@ -212,11 +212,11 @@ void MenuManager::useCalculator() {
 				cheapestCity = price.first;
 			}
 		}
-		if (cheapestPrice == 99999999999999) {
-			continue;
+		if (cheapestPrice != 276447231) {
+			profit result = calc.calculateProfit(item, cheapestCity);
+			cout << setw(20) << item.getName() << setw(20) << item.getTier() << setw(20) << cheapestCity << setw(20) << result.city << setw(20) << result.profit << "%\n";
 		}
-		profit result = calc.calculateProfit(item, cheapestCity);
-		cout << setw(20) << item.getName() << setw(20) << item.getTier() << setw(20) << cheapestCity << setw(20) << result.city << setw(20) << result.profit << "%\n";
+		
 	}
 	waitForEnter();
 }
