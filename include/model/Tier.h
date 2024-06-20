@@ -70,6 +70,39 @@ inline ostream& operator<<(ostream& os, const Tier& tier) {
     return os;
 }
 
+inline string toString(Tier tier) {
+    switch (tier) {
+    case Tier::TIER_2_0: return "2.0";
+    case Tier::TIER_3_0: return "3.0";
+    case Tier::TIER_4_0: return "4.0";
+    case Tier::TIER_4_1: return "4.1";
+    case Tier::TIER_4_2: return "4.2";
+    case Tier::TIER_4_3: return "4.3";
+    case Tier::TIER_4_4: return "4.4";
+    case Tier::TIER_5_0: return "5.0";
+    case Tier::TIER_5_1: return "5.1";
+    case Tier::TIER_5_2: return "5.2";
+    case Tier::TIER_5_3: return "5.3";
+    case Tier::TIER_5_4: return "5.4";
+    case Tier::TIER_6_0: return "6.0";
+    case Tier::TIER_6_1: return "6.1";
+    case Tier::TIER_6_2: return "6.2";
+    case Tier::TIER_6_3: return "6.3";
+    case Tier::TIER_6_4: return "6.4";
+    case Tier::TIER_7_0: return "7.0";
+    case Tier::TIER_7_1: return "7.1";
+    case Tier::TIER_7_2: return "7.2";
+    case Tier::TIER_7_3: return "7.3";
+    case Tier::TIER_7_4: return "7.4";
+    case Tier::TIER_8_0: return "8.0";
+    case Tier::TIER_8_1: return "8.1";
+    case Tier::TIER_8_2: return "8.2";
+    case Tier::TIER_8_3: return "8.3";
+    case Tier::TIER_8_4: return "8.4";
+    default: return "Unknown";
+    }
+}
+
 inline Tier fromString(const string& str) {
     if (str == "2.0") return Tier::TIER_2_0;
     if (str == "3.0") return Tier::TIER_3_0;

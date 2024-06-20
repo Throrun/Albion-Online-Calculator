@@ -28,3 +28,17 @@ inline std::ostream& operator<<(std::ostream& os, City city) {
     }
     return os;
 }
+
+inline std::string toString(City city) {
+    switch (city) {
+    case City::BRIDGEWATCH: return "BRIDGEWATCH";
+    case City::LYMHURST: return "LYMHURST"; break;
+    case City::FORT_STERLING: return "FORT_STERLING"; break;
+    case City::THETFORD: return "THETFORD"; break;
+    case City::MARTLOCK: return "MARTLOCK"; break;
+    case City::CAERLEON: return "CAERLEON"; break;
+    case City::BLACK_MARKET: return "BLACK_MARKET"; break;
+    case City::BRECILIEN: return "BRECILIEN"; break;
+    default: return "UNKNOWN";
+    }
+}

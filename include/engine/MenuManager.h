@@ -17,6 +17,7 @@ private:
 	SqliteDatabase db;
 public:
 	MenuManager() {
+		db.runDatabase();
 		menuNavigator();
 	}
 	void menuNavigator(); //shows options in menu then asks to choose 1-5 and switch case
